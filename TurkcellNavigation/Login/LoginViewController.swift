@@ -8,16 +8,35 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     var viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addPhoneView()
+        
         if viewModel.isLoggedIn {
             let controller2 = TurkcellStoryboard.home.viewController(with: HomeTabbarControllerViewController.self)
             controller2.modalPresentationStyle = .fullScreen
             self.present(controller2, animated: true)
+        }
+        
+       
+    }
+    
+    func addPhoneView() {
+        let nib = UINib(nibName: "PhoneCountryView", bundle: nil)
+        if let subView = nib.instantiate(withOwner: self).first as? PhoneCountryView {
+            subView.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.view.addSubview(subView)
+            
+            NSLayoutConstraint.activate([
+                subView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                subView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+                subView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                subView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            ])
         }
     }
     
