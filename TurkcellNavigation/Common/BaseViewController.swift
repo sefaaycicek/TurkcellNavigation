@@ -1,5 +1,5 @@
 //
-//  LastScreenViewController.swift
+//  BaseViewController.swift
 //  TurkcellNavigation
 //
 //  Created by Sefa Aycicek on 17.09.2024.
@@ -7,23 +7,12 @@
 
 import UIKit
 
-class LastScreenViewController: BaseViewController {
+class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Ana Sayfa"
+
         // Do any additional setup after loading the view.
-    }
-    
-    
-    @IBAction func logoutTapped(_ sender: Any) {
-        self.tabBarController?.dismiss(animated: true)
-        UserDefaults.standard.set(false, forKey: "user_logged_in")
-    }
-    
-    @IBAction func homeScreenTapped(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-        //self.navigationController?.popViewController(animated: true) navigation içindeki 1 önceki ekran.
     }
     
 

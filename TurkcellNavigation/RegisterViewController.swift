@@ -17,10 +17,12 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerTapped(_ sender: Any) {
         
-        let controller2 = TurkcellStoryboard.home.viewController(with: HomeNavigationController.self)
+        let controller2 = TurkcellStoryboard.home.viewController(with: HomeTabbarControllerViewController.self)
         controller2.modalPresentationStyle = .fullScreen
         self.present(controller2, animated: true)
         
+        
+        UserDefaults.standard.set(true, forKey: "user_logged_in")
         
         /* yukardaki yapıya dönüştürdük
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
